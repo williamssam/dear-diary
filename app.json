@@ -40,7 +40,9 @@
 									"./assets/fonts/WixMadeforText-Regular.ttf"
 								]
 							}
-						]
+						],
+						"expo-secure-store",
+						"expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true
