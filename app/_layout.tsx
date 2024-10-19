@@ -1,18 +1,34 @@
-import { Stack } from "expo-router";
-import { KeyboardProvider } from 'react-native-keyboard-controller'
-
+import 'react-native-gesture-handler'
 import '../styles/global.css'
+
+import { Stack } from 'expo-router'
+import { SystemBars } from 'react-native-edge-to-edge'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { KeyboardProvider } from 'react-native-keyboard-controller'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+
+export { ErrorBoundary } from 'expo-router'
+
+export const unstable_settings = {
+	initialRouteName: '(app)',
+}
 
 if (__DEV__) {
 	require('../config/reactotron-config.js')
 }
 
 export default function RootLayout() {
-  return (
+	return (
+		<GestureHandlerRootView style={{ flex: 1 }}>
 			<KeyboardProvider>
-				<Stack screenOptions={{ headerShown: false }}>
-					<Stack.Screen name='index' />
-				</Stack>
+				<SafeAreaProvider>
+					<SystemBars style='auto' />
+
+					<Stack screenOptions={{ headerShown: false }}>
+						<Stack.Screen name='index' />
+					</Stack>
+				</SafeAreaProvider>
 			</KeyboardProvider>
-		)
+		</GestureHandlerRootView>
+	)
 }
