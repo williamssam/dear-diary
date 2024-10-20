@@ -15,7 +15,10 @@ export const Container = ({ children, className }: ContainerProps) => {
 		<View className='flex-1 bg-dd-main-light'>
 			<View
 				style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
-				className={twMerge('flex-1 bg-dd-main-light p-6', className)}>
+				className={twMerge(
+					'flex-1 bg-dd-main-light p-6 android:mb-4',
+					className
+				)}>
 				{children}
 			</View>
 		</View>

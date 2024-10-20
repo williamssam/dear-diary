@@ -22,7 +22,7 @@ export const Button = ({
 	return (
 		<Pressable
 			{...props}
-			className={`h-[48px] overflow-hidden rounded-lg border ${variant === 'secondary' ? 'border-dd-black' : 'border-dd-main'}`}>
+			className={`h-[50px] overflow-hidden rounded-lg border ${variant === 'secondary' ? 'border-dd-black' : 'border-dd-main'}`}>
 			<LinearGradient
 				colors={variantGradient[variant]}
 				start={{ x: 0, y: 0 }}

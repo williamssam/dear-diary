@@ -31,12 +31,13 @@ export default function Index() {
 					<Button onPress={() => router.push('/enter-name')}>
 						Get Started
 					</Button>
-					<Pressable className='h-[50px] items-center justify-center'>
+					<Pressable
+						className='h-[50px] items-center justify-center'
+						onPress={() => router.navigate('/login')}>
 						<Text className='font-wixmadefor-medium text-center text-lg text-dd-black'>
 							Log in
 						</Text>
 					</Pressable>
-					{/* <Button>Log in</Button> */}
 				</View>
 			</View>
 		</Container>

@@ -8,4 +8,4 @@ Dear Diary is a mobile application designed to recreate the experience of writin
 
 ## Authors
 - Adeola Adeokoya (UI/UX) - https://github.com/AdeolaAdekoya
-- Williams (Developer) - https://github.com/williamssam
+- Williams Samuel (Developer) - https://github.com/williamssam

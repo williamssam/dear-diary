@@ -18,7 +18,7 @@ const PersonalizeDiary = () => {
 			</View>
 
 			<View>
-				<Button onPress={() => router.push('/welcome')}>
+				<Button onPress={() => router.push('/create-pin')}>
 					Preview cover ✨
 				</Button>
 			</View>

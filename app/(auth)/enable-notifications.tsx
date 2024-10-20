@@ -30,7 +30,9 @@ const EnableNotifications = () => {
 					Enable notifications
 				</Button>
 
-				<Pressable className='h-[50px] items-center justify-center'>
+				<Pressable
+					className='h-[50px] items-center justify-center'
+					onPress={() => router.push('/')}>
 					<Text className='font-wixmadefor-medium text-center text-lg text-dd-black'>
 						Maybe later
 					</Text>

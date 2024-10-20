@@ -10,7 +10,7 @@ const IntroTwo = () => {
 	const router = useRouter()
 
 	return (
-		<Container className='justify-between bg-dd-main'>
+		<Container className='justify-between bg-dd-main ndroid:mb-0'>
 			<StatusBar style='light' />
 
 			<Pressable className='self-end'>
@@ -21,7 +21,7 @@ const IntroTwo = () => {
 
 			<Image source={IntroTwoImg} className='self-center' />
 
-			<View className='pt-6 gap-6'>
+			<View className='py-6 gap-6'>
 				<Text className='text-white text-center text-2xl font-wixmadefor-medium'>
 					Keep Your Thoughts Safe
 				</Text>
