@@ -1,6 +1,5 @@
 const plugin = require('tailwindcss')
 const { textSizes } = require('./styles/typography')
-import { hairlineWidth, pixelRatioSelect } from 'nativewind/theme'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -19,13 +18,6 @@ module.exports = {
 				'dd-pink-three': '#FACEDD',
 				'dd-pink-four': '#FEDCE7',
 				'dd-main-light': '#FFE9F0',
-			},
-			borderWidth: {
-				hw: pixelRatioSelect({
-					1: hairlineWidth(),
-					1.5: 1,
-					default: hairlineWidth(),
-				}),
 			},
 		},
 		fontFamily: {

@@ -8,7 +8,7 @@ export default function Index() {
 
 	return (
 		<Container className='justify-between'>
-			<View className='pt-6 gap-3'>
+			<View className='pt-6 gap-4'>
 				<Text className='text-lg font-wixmadefor-medium text-dd-pink-one'>
 					Hi, I'm Lucie
 				</Text>
@@ -42,7 +42,3 @@ export default function Index() {
 		</Container>
 	)
 }
-
-
-
-

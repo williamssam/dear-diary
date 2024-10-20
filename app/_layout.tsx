@@ -6,6 +6,7 @@ import { SystemBars } from 'react-native-edge-to-edge'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { KeyboardProvider } from 'react-native-keyboard-controller'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { IS_IOS } from '@/config/platform'
 
 export { ErrorBoundary } from 'expo-router'
 
@@ -26,6 +27,12 @@ export default function RootLayout() {
 
 					<Stack screenOptions={{ headerShown: false }}>
 						<Stack.Screen name='index' />
+						<Stack.Screen
+							name='(auth)/preview-cover'
+							options={{
+								presentation: IS_IOS ? 'modal' : 'card',
+							}}
+						/>
 					</Stack>
 				</SafeAreaProvider>
 			</KeyboardProvider>

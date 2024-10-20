@@ -1,17 +1,30 @@
 import { LinearGradient } from 'expo-linear-gradient'
 import { Pressable, StyleSheet, Text, type PressableProps } from 'react-native'
+import { BounceOutUp } from 'react-native-reanimated'
+
+type Variant = 'primary' | 'secondary'
 
 interface ButtonProps extends PressableProps {
 	children: React.ReactNode
+	variant?: Variant
 }
 
-export const Button = ({ children, ...props }: ButtonProps) => {
+const variantGradient: Record<Variant, string[]> = {
+	primary: ['#E93D82', '#E93D82'],
+	secondary: ['#101828', '#101828'],
+}
+
+export const Button = ({
+	children,
+	variant = 'primary',
+	...props
+}: ButtonProps) => {
 	return (
 		<Pressable
 			{...props}
-			className='h-[50px] overflow-hidden rounded-lg border border-dd-main'>
+			className={`h-[48px] overflow-hidden rounded-lg border ${variant === 'secondary' ? 'border-dd-black' : 'border-dd-main'}`}>
 			<LinearGradient
-				colors={['#E93D82', '#E93D82']}
+				colors={variantGradient[variant]}
 				start={{ x: 0, y: 0 }}
 				end={{ x: 0, y: 1 }}
 				style={StyleSheet.absoluteFill}>

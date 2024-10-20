@@ -12,8 +12,8 @@
 		"lint": "expo lint",
 		"prebuild:android": "npx expo prebuild -p android --clean",
 		"prebuild:ios": "npx expo prebuild -p ios --clean",
-		"build-android:dev": "pnpm prebuild:android && pnpm android",
-		"build-ios:dev": "pnpm prebuild:ios && pnpm ios",
+		"build-android:dev": "bun prebuild:android && bun android",
+		"build-ios:dev": "bun prebuild:ios && bun ios",
 		"build-preview": "eas build -p android --profile preview",
 		"build-production": "eas build -p android --profile production"
 	},
