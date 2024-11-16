@@ -1,5 +1,47 @@
-import { Stack } from "expo-router";
+import 'react-native-gesture-handler'
+import '../styles/global.css'
 
+import { IS_IOS } from '@/config/platform'
+import { Stack } from 'expo-router'
+import * as SplashScreen from 'expo-splash-screen'
+import { SystemBars } from 'react-native-edge-to-edge'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { KeyboardProvider } from 'react-native-keyboard-controller'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+
+export { ErrorBoundary } from 'expo-router'
+
+export const unstable_settings = {
+	initialRouteName: '(app)',
+}
+
+if (__DEV__) {
+	require('../config/reactotron-config.js')
+}
+
+SplashScreen.preventAutoHideAsync()
+SplashScreen.setOptions({
+	duration: 1000,
+	fade: true,
+})
 export default function RootLayout() {
-  return <Stack />;
+	return (
+		<GestureHandlerRootView style={{ flex: 1 }}>
+			<KeyboardProvider>
+				<SafeAreaProvider>
+					<SystemBars style='auto' />
+
+					<Stack screenOptions={{ headerShown: false }}>
+						<Stack.Screen name='index' />
+						<Stack.Screen
+							name='(auth)/preview-cover'
+							options={{
+								presentation: IS_IOS ? 'modal' : 'card',
+							}}
+						/>
+					</Stack>
+				</SafeAreaProvider>
+			</KeyboardProvider>
+		</GestureHandlerRootView>
+	)
 }

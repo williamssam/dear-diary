@@ -61,7 +61,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
 					enableShrinkResourcesInReleaseBuilds: true,
 				},
 				ios: {
-					useFrameworks: true,
+					useFrameworks: 'static',
 				},
 			},
 		],

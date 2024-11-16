@@ -1,41 +1,38 @@
+import { NumberPad } from '@/components/number-pad'
 import { Button } from '@/ui/button'
 import { Container } from '@/ui/container'
 import { useRouter } from 'expo-router'
-import { Image, Pressable, Text, View } from 'react-native'
+import * as React from 'react'
+import { Pressable, Text, View } from 'react-native'
 
-export default function Index() {
+const CreatePin = () => {
 	const router = useRouter()
+	const [code, setCode] = React.useState([])
 
 	return (
-		<Container className='justify-between'>
+		<Container>
 			<View className='pt-6 gap-4'>
 				<Text className='text-lg font-wixmadefor-medium text-dd-pink-one'>
-					Hi, I'm Lucie
+					Create pin
 				</Text>
 				<Text className='text-dd-black text-xl font-wixmadefor-medium'>
-					Welcome to Dear diary. We help you express your thoughts and feelings
-					in a safe and private space.
+					Set up a 6 digits security pin to ensure your entries are safe
 				</Text>
 			</View>
 
-			<View className='gap-10'>
-				<View className='justify-center items-center gap-4'>
-					<Image
-						source={require('../assets/images/chat.png')}
-						className='ml-28'
-					/>
-					<Image source={require('../assets/images/cat.png')} />
-				</View>
+			{/* <OTPField /> */}
 
+			{/* @ts-ignore */}
+			<NumberPad code={code} setCode={setCode} />
+
+			<View className='mt-auto'>
 				<View>
-					<Button onPress={() => router.push('/enter-name')}>
-						Get Started
-					</Button>
+					<Button onPress={() => router.push('/welcome')}>Create pin</Button>
 					<Pressable
 						className='h-[50px] items-center justify-center'
 						onPress={() => router.navigate('/login')}>
 						<Text className='font-wixmadefor-medium text-center text-lg text-dd-black'>
-							Log in
+							Not now
 						</Text>
 					</Pressable>
 				</View>
@@ -43,3 +40,5 @@ export default function Index() {
 		</Container>
 	)
 }
+
+export default CreatePin
