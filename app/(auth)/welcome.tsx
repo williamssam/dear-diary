@@ -22,7 +22,7 @@ const Welcome = () => {
 			<Image source={WelcomeImage} />
 
 			<View>
-				<Button onPress={() => router.push('/intro-one')}>Let’s go 🚀</Button>
+				<Button onPress={() => router.push('/intro')}>Let’s go 🚀</Button>
 			</View>
 		</Container>
 	)

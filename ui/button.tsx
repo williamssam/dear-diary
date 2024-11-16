@@ -1,5 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient'
-import { Pressable, StyleSheet, Text, type PressableProps } from 'react-native'
+import { Pressable, type PressableProps, StyleSheet, Text } from 'react-native'
 
 type Variant = 'primary' | 'secondary'
 
@@ -21,7 +21,9 @@ export const Button = ({
 	return (
 		<Pressable
 			{...props}
-			className={`h-[50px] overflow-hidden rounded-lg border ${variant === 'secondary' ? 'border-dd-black' : 'border-dd-main'}`}>
+			className={`h-[50px] overflow-hidden rounded-lg border ${
+				variant === 'secondary' ? 'border-dd-black' : 'border-dd-main'
+			}`}>
 			<LinearGradient
 				colors={variantGradient[variant]}
 				start={{ x: 0, y: 0 }}
@@ -37,7 +39,7 @@ export const Button = ({
 						justifyContent: 'center',
 					}}
 					className='items-center justify-center'>
-					<Text className='font-wixmadefor-medium android:leading-none text-center text-lg text-white'>
+					<Text className='font-wixmadefor-medium text-center text-lg text-white'>
 						{children}
 					</Text>
 				</LinearGradient>

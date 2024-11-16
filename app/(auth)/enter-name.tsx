@@ -1,10 +1,10 @@
+import { BackBtn } from '@/components/back-btn'
 import { colors } from '@/theme/colors'
 import { Button } from '@/ui/button'
 import { Container } from '@/ui/container'
-import { IconChevronLeft } from '@tabler/icons-react-native'
 import { useRouter } from 'expo-router'
 import * as React from 'react'
-import { Pressable, Text, TextInput, View } from 'react-native'
+import { Text, TextInput, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller'
 
 const EnterName = () => {
@@ -15,9 +15,7 @@ const EnterName = () => {
 		<Container>
 			<KeyboardAwareScrollView contentContainerClassName='justify-between flex-1'>
 				<View className='pt-4 gap-3'>
-					<Pressable onPress={() => router.back()}>
-						<IconChevronLeft color={colors['dd-gray-one']} />
-					</Pressable>
+					<BackBtn />
 
 					<View>
 						<Text className='font-wixmadefor-medium text-xl text-dd-black'>
@@ -30,7 +28,7 @@ const EnterName = () => {
 				</View>
 
 				<TextInput
-					className='h-[70px] rounded-lg py-1 text-4xl font-wixmadefor-bold text-dd-black bg-transparent'
+					className='h-[70px] rounded-lg py-1 text-4xl font-wixmadefor-bold bg-transparent text-dd-main mt-4'
 					placeholder='Name'
 					onChangeText={onChangeText}
 					value={text}
@@ -38,7 +36,7 @@ const EnterName = () => {
 					autoCapitalize='none'
 					autoCorrect={false}
 					keyboardType='email-address'
-					placeholderClassName='text-dd-pink-one'
+					placeholderTextColor={colors.pink_three}
 				/>
 
 				<View style={{ marginTop: 'auto' }}>

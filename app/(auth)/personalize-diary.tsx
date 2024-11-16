@@ -1,3 +1,4 @@
+import { BackBtn } from '@/components/back-btn'
 import { Button } from '@/ui/button'
 import { Container } from '@/ui/container'
 import { useRouter } from 'expo-router'
@@ -8,7 +9,9 @@ const PersonalizeDiary = () => {
 
 	return (
 		<Container>
-			<View className='pt-6 gap-3'>
+			<View className='pt-6 gap-4'>
+				<BackBtn />
+
 				<Text className='text-lg font-wixmadefor-medium text-dd-pink-one'>
 					..Ok, Adeola
 				</Text>
@@ -18,9 +21,7 @@ const PersonalizeDiary = () => {
 			</View>
 
 			<View>
-				<Button onPress={() => router.push('/preview-cover')}>
-					Preview cover ✨
-				</Button>
+				<Button onPress={() => router.push('/preview-cover')}>Preview cover ✨</Button>
 			</View>
 		</Container>
 	)

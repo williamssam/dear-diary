@@ -3,7 +3,6 @@ import '../styles/global.css'
 
 import { IS_IOS } from '@/config/platform'
 import { Stack } from 'expo-router'
-import * as SplashScreen from 'expo-splash-screen'
 import { SystemBars } from 'react-native-edge-to-edge'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { KeyboardProvider } from 'react-native-keyboard-controller'
@@ -15,21 +14,21 @@ export const unstable_settings = {
 	initialRouteName: '(app)',
 }
 
-if (__DEV__) {
-	require('../config/reactotron-config.js')
-}
+// if (__DEV__) {
+// 	require('../config/reactotron-config.js')
+// }
 
-SplashScreen.preventAutoHideAsync()
-SplashScreen.setOptions({
-	duration: 1000,
-	fade: true,
-})
+// SplashScreen.preventAutoHideAsync()
+// SplashScreen.setOptions({
+// 	duration: 1000,
+// 	fade: true,
+// })
 export default function RootLayout() {
 	return (
 		<GestureHandlerRootView style={{ flex: 1 }}>
 			<KeyboardProvider>
 				<SafeAreaProvider>
-					<SystemBars style='auto' />
+					<SystemBars style='dark' />
 
 					<Stack screenOptions={{ headerShown: false }}>
 						<Stack.Screen name='index' />

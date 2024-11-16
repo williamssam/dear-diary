@@ -1,3 +1,4 @@
+import { colors } from '@/theme/colors'
 import { IconArrowLeft, IconFaceId } from '@tabler/icons-react-native'
 import type * as React from 'react'
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native'
@@ -20,6 +21,8 @@ type NumberPadProps = {
 	setCode: React.Dispatch<React.SetStateAction<any[]>>
 }
 
+const inputWidth = width / 7
+
 export const NumberPad = ({ code, setCode }: NumberPadProps) => {
 	return (
 		<View className='flex-col flex-1 justify-between gap-2 py-6'>
@@ -33,7 +36,10 @@ export const NumberPad = ({ code, setCode }: NumberPadProps) => {
 							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 							key={index}>
 							<View
-								className={`w-16 h-16 items-center justify-center rounded-lg bg-dd-pink-three ${
+								style={{
+									width: inputWidth,
+								}}
+								className={`h-[66px] items-center justify-center rounded-lg bg-dd-pink-three ${
 									isSelected ? 'border-2 border-dd-main/50' : ''
 								}`}>
 								{isSelected && (
@@ -120,9 +126,9 @@ export const NumberPad = ({ code, setCode }: NumberPadProps) => {
 								setCode(prev => [...prev, item])
 							}}>
 							{item === 'X' ? (
-								<IconArrowLeft />
+								<IconArrowLeft color={colors.gray_one} />
 							) : item === 'face' ? (
-								<IconFaceId />
+								<IconFaceId color={colors.gray_one} />
 							) : (
 								<Text className='font-wixmadefor-medium text-xl'>{item}</Text>
 							)}

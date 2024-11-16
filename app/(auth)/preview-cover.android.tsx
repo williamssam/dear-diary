@@ -12,13 +12,13 @@ const PreviewCover = () => {
 		<Container className='justify-between'>
 			<View className='flex-row items-center'>
 				<Pressable onPress={() => router.back()}>
-					<IconChevronLeft color={colors['dd-gray-one']} />
+					<IconChevronLeft color={colors.gray_one} />
 				</Pressable>
 
 				<Text className='flex-1 text-center'>Cover preview</Text>
 			</View>
 
-			<Button>Next</Button>
+			<Button onPress={() => router.navigate('/create-pin')}>Next</Button>
 		</Container>
 	)
 }
