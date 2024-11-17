@@ -32,10 +32,11 @@ export default function RootLayout() {
 
 					<Stack screenOptions={{ headerShown: false }}>
 						<Stack.Screen name='index' />
+
 						<Stack.Screen
 							name='(auth)/preview-cover'
 							options={{
-								presentation: IS_IOS ? 'modal' : 'card',
+								presentation: IS_IOS ? 'formSheet' : 'card',
 							}}
 						/>
 					</Stack>

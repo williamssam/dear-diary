@@ -1,8 +1,8 @@
 import { Button } from '@/ui/button'
 import { Container } from '@/ui/container'
 import { useRouter } from 'expo-router'
-import { Image, Pressable, Text, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
+import { Image, Pressable, Text, View } from 'react-native'
 
 const EnableNotificationsImg = require('../../assets/images/cat-at-window.png')
 
@@ -13,7 +13,7 @@ const EnableNotifications = () => {
 		<Container className='justify-between'>
 			<StatusBar style='dark' />
 
-			<View className='pt-6 gap-4'>
+			<View className=' gap-4'>
 				<Text className='text-dd-black text-2xl font-wixmadefor-medium'>
 					Stay in the loop!
 				</Text>

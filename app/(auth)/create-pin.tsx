@@ -1,3 +1,4 @@
+import { BackBtn } from '@/components/back-btn'
 import { NumberPad } from '@/components/number-pad'
 import { Button } from '@/ui/button'
 import { Container } from '@/ui/container'
@@ -11,7 +12,9 @@ const CreatePin = () => {
 
 	return (
 		<Container>
-			<View className='pt-6 gap-4'>
+			<View className=' gap-4'>
+				<BackBtn />
+
 				<Text className='text-lg font-wixmadefor-medium text-dd-pink-one'>
 					Create pin
 				</Text>

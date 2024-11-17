@@ -10,7 +10,7 @@ const Welcome = () => {
 
 	return (
 		<Container className='justify-between'>
-			<View className='pt-6 gap-3'>
+			<View className=' gap-3'>
 				<Text className='text-dd-black text-xl font-wixmadefor-medium'>
 					Now that you’ve covered the basics
 				</Text>
