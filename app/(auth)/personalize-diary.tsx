@@ -1,56 +1,65 @@
 import { BackBtn } from '@/components/back-btn'
-import { EightDiaryDesign } from '@/components/diaries/EightDiaryDesign'
-import { FifthDiaryDesign } from '@/components/diaries/FifthDiaryDesign'
-import { FirstDiaryDesign } from '@/components/diaries/FirstDiaryDesign'
-import { FourthDiaryDesign } from '@/components/diaries/FourthDiaryDesign'
-import { SecondDiaryDesign } from '@/components/diaries/SecondDiaryDesign'
-import { SeventhDiaryDesign } from '@/components/diaries/SeventhDiaryDesign'
-import { SixthDiaryDesign } from '@/components/diaries/SixthDiaryDesign'
-import { ThirdDiaryDesign } from '@/components/diaries/ThirdDiaryDesign'
+import { Diary } from '@/components/diary'
 import { colors } from '@/theme/colors'
 import { Button } from '@/ui/button'
 import { useRouter } from 'expo-router'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import * as React from 'react'
+import {
+	FlatList,
+	type ListRenderItemInfo,
+	StyleSheet,
+	Text,
+	View,
+} from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-const diaries = [
+export const diaries = [
 	{
 		id: 1,
-		component: <FirstDiaryDesign />,
+		image: require('@/assets/images/type=1.png'),
 	},
 	{
 		id: 2,
-		component: <SecondDiaryDesign />,
+		image: require('@/assets/images/type=2.png'),
 	},
 	{
 		id: 3,
-		component: <ThirdDiaryDesign />,
+		image: require('@/assets/images/type=3.png'),
 	},
 	{
 		id: 4,
-		component: <FourthDiaryDesign />,
+		image: require('@/assets/images/type=4.png'),
 	},
 	{
 		id: 5,
-		component: <FifthDiaryDesign />,
+		image: require('@/assets/images/type=5.png'),
 	},
 	{
 		id: 6,
-		component: <SixthDiaryDesign />,
+		image: require('@/assets/images/type=6.png'),
 	},
 	{
 		id: 7,
-		component: <SeventhDiaryDesign />,
+		image: require('@/assets/images/type=7.png'),
 	},
 	{
 		id: 8,
-		component: <EightDiaryDesign />,
+		image: require('@/assets/images/type=8.png'),
 	},
 ]
 
 const PersonalizeDiary = () => {
 	const router = useRouter()
 	const insets = useSafeAreaInsets()
+	const [selected, setSelected] = React.useState<number | null>(null)
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	const renderItem = React.useCallback(
+		({ item }: ListRenderItemInfo<(typeof diaries)[number]>) => (
+			<Diary item={item} selected={selected} setSelected={setSelected} />
+		),
+		[selected, setSelected]
+	)
 
 	return (
 		<>
@@ -64,7 +73,7 @@ const PersonalizeDiary = () => {
 						paddingBottom: insets.bottom,
 						backgroundColor: colors.main_light,
 					}}
-					renderItem={({ item }) => item.component}
+					renderItem={renderItem}
 					keyExtractor={item => item.id.toString()}
 					contentContainerClassName='gap-4 bg-dd-main-light px-6 pb-32'
 					columnWrapperClassName='gap-1 justify-between'
@@ -87,7 +96,15 @@ const PersonalizeDiary = () => {
 				// @ts-expect-error
 				style={styles.footer}
 				className='absolute w-full bottom-0 p-6 h-32 justify-center'>
-				<Button onPress={() => router.push('/preview-cover')}>
+				<Button
+					onPress={() =>
+						router.push({
+							pathname: '/preview-cover',
+							params: {
+								id: selected,
+							},
+						})
+					}>
 					Preview cover ✨
 				</Button>
 			</View>
