@@ -1,4 +1,3 @@
-import { LinearGradient } from 'expo-linear-gradient'
 import { Pressable, type PressableProps, StyleSheet, Text } from 'react-native'
 
 type Variant = 'primary' | 'secondary'
@@ -13,18 +12,15 @@ const variantGradient: Record<Variant, string[]> = {
 	secondary: ['#101828', '#101828'],
 }
 
-export const Button = ({
-	children,
-	variant = 'primary',
-	...props
-}: ButtonProps) => {
+export const Button = ({ children, variant = 'primary', ...props }: ButtonProps) => {
 	return (
 		<Pressable
 			{...props}
-			className={`h-[50px] overflow-hidden rounded-lg border ${
+			style={styles.btn}
+			className={`android:h-[50px] ios:h-12 overflow-hidden justify-center items-center rounded-lg border ${
 				variant === 'secondary' ? 'border-dd-black' : 'border-dd-main'
 			}`}>
-			<LinearGradient
+			{/* <LinearGradient
 				colors={variantGradient[variant]}
 				start={{ x: 0, y: 0 }}
 				end={{ x: 0, y: 1 }}
@@ -39,11 +35,11 @@ export const Button = ({
 						justifyContent: 'center',
 					}}
 					className='items-center justify-center'>
-					<Text className='font-wixmadefor-medium text-center text-lg text-white'>
-						{children}
-					</Text>
 				</LinearGradient>
-			</LinearGradient>
+			</LinearGradient> */}
+			<Text className='font-wixmadefor-medium text-center ios:text-base android:text-lg text-white'>
+				{children}
+			</Text>
 		</Pressable>
 	)
 }
@@ -54,5 +50,13 @@ const styles = StyleSheet.create({
 	},
 	shadowContainer: {
 		flex: 1,
+	},
+	btn: {
+		// @ts-expect-error
+		experimental_backgroundImage:
+			'linear-gradient(0deg, #E93D82, #E93D82),linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%)',
+		boxShadow: '0px 1px 2px 0px rgba(203, 29, 99, 0.4), 0px 0px 0px 1px rgba(203, 29, 99, 1)',
+		borderWidth: 1,
+		borderColor: 'rgba(255, 255, 255, 0.1)',
 	},
 })
