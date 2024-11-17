@@ -34,12 +34,13 @@ export const NumberPad = ({ code, setCode }: NumberPadProps) => {
 					return (
 						<View
 							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-							key={index}>
+							key={index}
+						>
 							<View
 								style={{
 									width: inputWidth,
 								}}
-								className={`h-[66px] items-center justify-center rounded-lg bg-dd-pink-three ${
+								className={`h-16 items-center justify-center rounded-lg bg-dd-pink-three ${
 									isSelected ? 'border-2 border-dd-main/50' : ''
 								}`}>
 								{isSelected && (

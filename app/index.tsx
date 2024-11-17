@@ -33,7 +33,7 @@ export default function Index() {
 					</Button>
 					<Pressable
 						className='h-[50px] items-center justify-center'
-						onPress={() => router.navigate('/(tabs)')}>
+						onPress={() => router.navigate('/login')}>
 						<Text className='font-wixmadefor-medium text-center text-lg text-dd-black'>
 							Log in
 						</Text>

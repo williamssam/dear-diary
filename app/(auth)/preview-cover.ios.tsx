@@ -8,7 +8,7 @@ import { diaries } from './personalize-diary'
 const classnames = {
 	1: 'absolute text-2xl z-50 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-white',
 	2: 'absolute z-50 bottom-4 left-1/2 -translate-x-1/2 text-white',
-	3: 'absolute z-50 top-6 left-1/2 -translate-x-1/2 text-dd-black',
+	3: 'absolute z-50 top-6 left-1/2 -translate-x-1/2 text-white',
 	4: 'absolute z-50 top-6 left-1/2 -translate-x-1/2 text-white',
 	5: 'absolute z-50 top-6 left-1/2 -translate-x-1/2 text-white',
 	6: 'absolute z-50 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-white',
@@ -28,7 +28,7 @@ const PreviewCover = () => {
 
 			<View className='flex-1 bg-dd-main-light py-8 px-6 justify-between'>
 				<View className='flex-row items-center'>
-					<Pressable onPress={() => router.back()}>
+					<Pressable onPress={() => router.dismiss()}>
 						<IconX size={20} color='#344054' />
 					</Pressable>
 
@@ -44,7 +44,9 @@ const PreviewCover = () => {
 					</Text>
 				</View>
 
-				<Button onPress={() => router.navigate('/create-pin')}>Next</Button>
+				<Button onPress={() => router.replace('/create-pin')} className='mt-10'>
+					Next
+				</Button>
 			</View>
 		</>
 	)
